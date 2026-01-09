@@ -30,7 +30,7 @@
 */
 
     /*int main() {
-    Date pub(5, 4, 2021); // 04/05/2021 selon ton format jour/mois/année
+    Date pub(5, 4, 2021); /
 
     Livre l("The Hitchhiker's Guide to the Galaxy",
             "Douglas Adams",
@@ -53,7 +53,7 @@
 
 
 
-
+/*
 int main() {
     Bibliotheque bibliotheque;
     Date pub(4, 5, 2021);
@@ -77,4 +77,10 @@ int main() {
     std::cout << "Restitution reussie ? " << ok2 << std::endl;
 
     return 0;
+}
+*/
+
+
+int main(){
+
 }
