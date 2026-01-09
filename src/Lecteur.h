@@ -33,12 +33,16 @@ public:
         emprunts_.push_back(isbn);
     }
 
-    void print() const;  
+void print() const;  
     private:
     std::string id_;
     std::string nom_;
     std::string prenom_;
+
     std::vector<std::string> emprunts_;
+
+
 };
     
 #endif
+

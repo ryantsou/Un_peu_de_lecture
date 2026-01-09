@@ -30,7 +30,17 @@ public:
         prenom_ = prenom;
     }   
 
-    void print() const;  
+    const std::string& getNom() const {
+        return nom_;
+    }
+
+    const std::string& getPrenom() const {
+        return prenom_;
+    }
+
+
+
+void print() const;  
     private:
     std::string id_;
     std::string nom_;

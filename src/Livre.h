@@ -5,21 +5,22 @@
 #include <string>
 #include <vector>
 #include "Date.h"
+#include "Auteur.h"
 //using namespace std;
 
 class Livre {
 public:
     Livre() =default;
 
-    Livre (const std::string& titre, const std::string& auteur, const std::string& langue, const std::string& genre, const Date& datePublication, const std::string& isbn)
-        :titre_(titre), /*auteur_(auteur),*/ langue_(langue), genre_(genre), datePublication_(datePublication), isbn_(isbn) {}    
+    Livre (const std::string& titre, Auteur& auteur, const std::string& langue, const std::string& genre, const Date& datePublication, const std::string& isbn)
+        :titre_(titre), auteur_(auteur), langue_(langue), genre_(genre), datePublication_(datePublication), isbn_(isbn) {}    
 
     const std::string& titre() const {
         return titre_;
     }
-//    const std::string& auteur() const {
-//        return auteur_;
-//    }
+    const Auteur& auteur() const {
+        return auteur_;
+    }
     const std::string& langue() const {
         return langue_;
     }
@@ -41,10 +42,10 @@ public:
     void set_titre(const std::string& titre) {
         titre_ = titre;
     }
-/*    void set_auteur(const std::string& auteur) {
+    void set_auteur(const Auteur& auteur) {
         auteur_ = auteur;
     }
-*/
+
     void set_langue(const std::string& langue) {
         langue_ = langue;
     }
@@ -68,9 +69,10 @@ public:
     bool estEmprunte() const { return estEmprunte_; }
     void setEmprunte(bool e) { estEmprunte_ = e; }
 
+
 private:
     std::string titre_;
-    std::string auteur_;
+    Auteur auteur_;
     std::string langue_;
     std::string genre_;
     Date datePublication_;
