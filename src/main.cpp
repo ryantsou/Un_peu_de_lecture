@@ -102,10 +102,11 @@ int main(){
     bibliotheque.ajouterAuteur(auteur8);
     Auteur auteur9("XX9", "Leo", "Tolstoy");
     bibliotheque.ajouterAuteur(auteur9);
-
+/*
     std::cout << "Info Auteur : ";
     auteur.print();
     std::cout << std::endl;
+    */
 //---------------------------------------------------------------------------
 // -------------------------------LIVRES---------------------------------
     Date pub(4, 5, 2021);
@@ -175,6 +176,7 @@ if (ok == true) {
     emprunt.print(); 
 } else {
     std::cout << "emprunt succes" << std::endl;
+    std::cout << std::endl;
 }
 
 std::cout << "Info Emprunt 2 : ";
