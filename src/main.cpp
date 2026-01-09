@@ -2,6 +2,7 @@
 #include "Date.h"
 #include "Lecteur.h"
 #include "Emprunt.h"
+#include "Auteur.h"
 #include "Bibliotheque.h"
 
 #include <iostream>
@@ -64,6 +65,8 @@ int main() {
     Lecteur lecteur("dginhac", "Ginhac", "Dominique");
     bibliotheque.ajouterLecteur(lecteur);
 
+    Auteur auteur("ID", "Be", "Teda");
+    bibliotheque.ajouterAuteur(auteur);
 
     Date dEmp(10, 12, 2025);
     bool ok = bibliotheque.emprunterLivre("dginhac", "0593359445", dEmp);

@@ -7,6 +7,9 @@ void Bibliotheque::ajouterLivre(const Livre& livre) {
 void Bibliotheque::ajouterLecteur(const Lecteur& livre) {
     lecteurs_.push_back(livre);
 }
+void Bibliotheque::ajouterAuteur(const Auteur& livre) {
+    auteurs_.push_back(livre);
+}
 
 bool Bibliotheque::emprunterLivre(const std::string& idLecteur, const std::string& isbn, const Date& dateEmprunt)
 {
