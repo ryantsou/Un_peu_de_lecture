@@ -83,6 +83,7 @@ int main() {
 
 int main(){
     Bibliotheque bibliotheque;
+// -------------------------------AUTEURS---------------------------------
     Auteur auteur("XX1", "Douglas", "Adams");
     bibliotheque.ajouterAuteur(auteur);
     Auteur auteur2("XX2", "Antoine", "de Saint-Exupéry");
@@ -102,7 +103,11 @@ int main(){
     Auteur auteur9("XX9", "Leo", "Tolstoy");
     bibliotheque.ajouterAuteur(auteur9);
 
-
+    std::cout << "Info Auteur : ";
+    auteur.print();
+    std::cout << std::endl;
+//---------------------------------------------------------------------------
+// -------------------------------LIVRES---------------------------------
     Date pub(4, 5, 2021);
     Livre livre("The Hitchhiker's Guide to the Galaxy", auteur, "Anglais", "Science Fiction", pub, "0593359445");
     Date pub2(06, 11, 1943);
@@ -131,6 +136,13 @@ int main(){
     bibliotheque.ajouterLivre(livre8);
     bibliotheque.ajouterLivre(livre9);
 
+    std::cout << "Info livre : ";
+    livre.print();
+    std::cout << std::endl;
+
+
+// --------------------------------------------------------------------------
+// -------------------------------LECTEURS---------------------------------
     Lecteur lecteur("dginhac", "Ginhac", "Dominique");
     Lecteur lecteur2("esirem", "Chassel", "Quentin");
     Lecteur lecteur3("esirem2", "Meunier", "Charles");
@@ -138,27 +150,50 @@ int main(){
     bibliotheque.ajouterLecteur(lecteur2);
     bibliotheque.ajouterLecteur(lecteur3);
 
+    std::cout << "Info Lecteur : ";
+    lecteur.print();
+    std::cout << std::endl;
+// --------------------------------------------------------------------------
+    
+//emprunt
 
-    //liste emprunteurs
-    livre.ajouterEmprunteur(lecteur.id());
 
+
+//emprunter livre
+Date dateDuJour(9, 1, 2025);
+Emprunt emprunt(dateDuJour, livre.isbn(), lecteur.id());    
+bool ok = bibliotheque.emprunterLivre("dginhac", "0593359445", dateDuJour);
+
+
+//reemprunter le meme livre
+Emprunt emprunt2(dateDuJour, livre.isbn(), lecteur2.id());  
+bool ok2 = bibliotheque.emprunterLivre("esirem", "0593359445", dateDuJour);
+
+
+std::cout << "Info Emprunt 1 : ";
+if (ok == true) {
+    emprunt.print(); 
+} else {
+    std::cout << "emprunt succes" << std::endl;
+}
+
+std::cout << "Info Emprunt 2 : ";
+if (ok2 == true) {
+    emprunt2.print(); 
+} else {
+    std::cout << "ECHEC" << std::endl;
+}
 /*
     std::cout << "Test Livre : ";
     livre.print();
     std::cout << std::endl;
 */
 
-    std::cout << "Info Lecteur : ";
-    lecteur.print();
-    std::cout << std::endl;
 
-    std::cout << "Info Auteur : ";
-    auteur.print();
-    std::cout << std::endl;
 
-    std::cout << "Info livre : ";
-    livre.print();
-    std::cout << std::endl;
+
+
+
 
     return 0;
 }
