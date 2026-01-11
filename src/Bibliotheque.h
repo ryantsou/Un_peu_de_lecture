@@ -39,6 +39,9 @@ public:
 std::vector<Livre> getLivresEmpruntes() const;
 double getPourcentageLivresEmpruntes() const;
 
+//livre enprunter par un lecteur
+std::vector<Livre> getLivresEmpruntesParLecteur(const std::string& idLecteur) const;
+
 private:
     std::vector<Livre> livres_;
     std::vector<Lecteur> lecteurs_;

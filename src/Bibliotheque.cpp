@@ -102,3 +102,19 @@ double Bibliotheque::getPourcentageLivresEmpruntes() const {
 
     return 100.0 * nbEmpruntes / livres_.size();
 }
+
+// livres empruntés par un lecteur
+std::vector<Livre> Bibliotheque::getLivresEmpruntesParLecteur(const std::string& idLecteur) const {
+    std::vector<Livre> result;
+    for (const auto& emprunt : emprunts_) {
+        if (emprunt.idLecteur() == idLecteur) {
+            for (const auto& livre : livres_) {
+                if (livre.isbn() == emprunt.isbnLivre()) {
+                    result.push_back(livre);
+                    break;
+                }
+            }
+        }
+    }
+    return result;
+}   

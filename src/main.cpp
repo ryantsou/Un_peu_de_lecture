@@ -207,6 +207,8 @@ for (const auto& l : livresParAuteur) {
 
 //---------------------------------------------------------------------------
 //livres empruntés et pourcentage
+
+/*
 std::cout << "Liste des livres empruntes :" << std::endl;
 auto livresEmp = bibliotheque.getLivresEmpruntes();
 for (const auto& l : livresEmp) {
@@ -219,5 +221,17 @@ std::cout << "Pourcentage de livres empruntes : "
           << " %" << std::endl;
 
 
+    return 0;
+}
+
+*/
+
+//livres empruntés par un lecteur
+std::cout << "Liste des livres empruntes dginhac :" << std::endl;
+std::vector<Livre> livresEmpParLecteur = bibliotheque.getLivresEmpruntesParLecteur("dginhac");
+for (const auto& l : livresEmpParLecteur) {
+    l.print();
+    std::cout << std::endl;
+}
     return 0;
 }
