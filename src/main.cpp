@@ -136,11 +136,11 @@ int main(){
     bibliotheque.ajouterLivre(livre7);
     bibliotheque.ajouterLivre(livre8);
     bibliotheque.ajouterLivre(livre9);
-
+/*
     std::cout << "Info livre : ";
     livre.print();
     std::cout << std::endl;
-
+*/
 
 // --------------------------------------------------------------------------
 // -------------------------------LECTEURS---------------------------------
@@ -150,10 +150,11 @@ int main(){
     bibliotheque.ajouterLecteur(lecteur);
     bibliotheque.ajouterLecteur(lecteur2);
     bibliotheque.ajouterLecteur(lecteur3);
-
+/*
     std::cout << "Info Lecteur : ";
     lecteur.print();
     std::cout << std::endl;
+*/
 // --------------------------------------------------------------------------
     
 //emprunt
@@ -185,6 +186,8 @@ if (ok2 == true) {
 } else {
     std::cout << "ECHEC" << std::endl;
 }
+std::cout << std::endl;
+//---------------------------------------------------------------------------
 /*
     std::cout << "Test Livre : ";
     livre.print();
@@ -193,14 +196,27 @@ if (ok2 == true) {
 
 
 //recherche livre par auteur
-
+/*
 std::cout << "Recherche livre par auteur Douglas Adams : " << std::endl;
 auto livresParAuteur = bibliotheque.rechercherLivresParAuteur("Douglas");
 for (const auto& l : livresParAuteur) {
     l.print();
     std::cout << std::endl;
 }
+*/
 
+//---------------------------------------------------------------------------
+//livres empruntés et pourcentage
+std::cout << "Liste des livres empruntes :" << std::endl;
+auto livresEmp = bibliotheque.getLivresEmpruntes();
+for (const auto& l : livresEmp) {
+    l.print();
+    std::cout << std::endl;
+}
+
+std::cout << "Pourcentage de livres empruntes : "
+          << bibliotheque.getPourcentageLivresEmpruntes()
+          << " %" << std::endl;
 
 
     return 0;

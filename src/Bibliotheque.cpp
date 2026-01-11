@@ -77,3 +77,28 @@ std::vector<Livre> Bibliotheque::rechercherLivresParAuteur(const std::string& no
     }
     return result;
 }
+
+//livres empruntés
+std::vector<Livre> Bibliotheque::getLivresEmpruntes() const {
+    std::vector<Livre> result;
+    for (const auto& livre : livres_) {
+        if (livre.estEmprunte()) {
+            result.push_back(livre);
+        }
+    }
+    return result;
+}
+
+// pourcentage de livres empruntés
+double Bibliotheque::getPourcentageLivresEmpruntes() const {
+    if (livres_.empty()) return 0.0;
+
+    int nbEmpruntes = 0;
+    for (const auto& livre : livres_) {
+        if (livre.estEmprunte()) {
+            nbEmpruntes++;
+        }
+    }
+
+    return 100.0 * nbEmpruntes / livres_.size();
+}

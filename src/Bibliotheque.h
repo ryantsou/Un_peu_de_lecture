@@ -35,6 +35,9 @@ public:
  //recherche livre par auteur
     std::vector<Livre> rechercherLivresParAuteur(const std::string& nomAuteur) const;
 
+//livre emprunté et calcul pourcentage par rapport au total
+std::vector<Livre> getLivresEmpruntes() const;
+double getPourcentageLivresEmpruntes() const;
 
 private:
     std::vector<Livre> livres_;
