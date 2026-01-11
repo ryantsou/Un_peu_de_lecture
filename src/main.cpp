@@ -192,8 +192,14 @@ if (ok2 == true) {
 */
 
 
+//recherche livre par auteur
 
-
+std::cout << "Recherche livre par auteur Douglas Adams : " << std::endl;
+auto livresParAuteur = bibliotheque.rechercherLivresParAuteur("Douglas");
+for (const auto& l : livresParAuteur) {
+    l.print();
+    std::cout << std::endl;
+}
 
 
 

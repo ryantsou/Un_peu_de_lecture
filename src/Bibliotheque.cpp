@@ -1,4 +1,5 @@
 #include "Bibliotheque.h"
+#include <iostream>
 
 void Bibliotheque::ajouterLivre(const Livre& livre) {
     livres_.push_back(livre);
@@ -57,4 +58,22 @@ bool Bibliotheque::restituerLivre(const std::string& idLecteur, const std::strin
     if (!livre || !livre->estEmprunte()) return false;
     livre->setEmprunte(false);
     return true;
+}
+
+
+//recherche livre par auteur
+std::vector<Livre> Bibliotheque::rechercherLivresParAuteur(const std::string& nomAuteur) const {
+    std::vector<Livre> result;
+    for (const auto& livre : livres_) {
+/*
+        std::cout << "DEBUG auteur du livre : "
+                  << livre.auteur().getNom() << " "
+                  << livre.auteur().getPrenom() << std::endl;
+*/
+
+        if (livre.auteur().getNom() == nomAuteur) {
+            result.push_back(livre);
+        }
+    }
+    return result;
 }

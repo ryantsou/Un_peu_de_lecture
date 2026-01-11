@@ -32,11 +32,18 @@ public:
 
     bool restituerLivre(const std::string& idLecteur, const std::string& isbn);
 
+ //recherche livre par auteur
+    std::vector<Livre> rechercherLivresParAuteur(const std::string& nomAuteur) const;
+
+
 private:
     std::vector<Livre> livres_;
     std::vector<Lecteur> lecteurs_;
     std::vector<Auteur> auteurs_;
     std::vector<Emprunt> emprunts_;
+    
+   
+
 };
 
 #endif
