@@ -21,7 +21,7 @@ public:
 
     void print() const;
 
-    private:
+private:
     Date dateEmprunt_;
     std::string isbnLivre_;
     std::string idLecteur_;

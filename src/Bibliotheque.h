@@ -36,11 +36,14 @@ public:
     std::vector<Livre> rechercherLivresParAuteur(const std::string& nomAuteur) const;
 
 //livre emprunté et calcul pourcentage par rapport au total
-std::vector<Livre> getLivresEmpruntes() const;
-double getPourcentageLivresEmpruntes() const;
+    std::vector<Livre> getLivresEmpruntes() const;
+    double getPourcentageLivresEmpruntes() const;
 
 //livre enprunter par un lecteur
-std::vector<Livre> getLivresEmpruntesParLecteur(const std::string& idLecteur) const;
+    std::vector<Livre> getLivresEmpruntesParLecteur(const std::string& idLecteur) const;
+
+//classement des lecteurs
+    std::vector<std::pair<Lecteur,int>> classementLecteursParEmprunts() const;
 
 private:
     std::vector<Livre> livres_;

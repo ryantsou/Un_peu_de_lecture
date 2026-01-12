@@ -162,31 +162,45 @@ int main(){
 
 
 //emprunter livre
-Date dateDuJour(9, 1, 2025);
-Emprunt emprunt(dateDuJour, livre.isbn(), lecteur.id());    
-bool ok = bibliotheque.emprunterLivre("dginhac", "0593359445", dateDuJour);
+    Date dateDuJour(9, 1, 2025);
+    Emprunt emprunt(dateDuJour, livre.isbn(), lecteur.id());    
+    bool ok = bibliotheque.emprunterLivre("dginhac", "0593359445", dateDuJour);
+    
+
+    Emprunt emprunt2(dateDuJour, livre.isbn(), lecteur2.id());  
+    bool ok2 = bibliotheque.emprunterLivre("esirem", "9780156013987", dateDuJour);
 
 
 //reemprunter le meme livre
-Emprunt emprunt2(dateDuJour, livre.isbn(), lecteur2.id());  
-bool ok2 = bibliotheque.emprunterLivre("esirem", "0593359445", dateDuJour);
+    Emprunt empruntFail(dateDuJour, livre.isbn(), lecteur3.id());  
+    bool ok3 = bibliotheque.emprunterLivre("esirem2", "0593359445", dateDuJour);
 
 
-std::cout << "Info Emprunt 1 : ";
-if (ok == true) {
-    emprunt.print(); 
-} else {
-    std::cout << "emprunt succes" << std::endl;
+
+    std::cout << "Info Emprunt 1 : ";
+        if (ok == true) {
+            emprunt.print(); 
+        } else {
+            std::cout << "emprunt succes" << std::endl;
+            }   
     std::cout << std::endl;
-}
+    std::cout << "Info Emprunt 2 : ";
+        if (ok2 == true) {
+            emprunt2.print(); 
+        } else {
+            std::cout << "ECHEC" << std::endl;
+        }
+    std::cout << std::endl;
+    std::cout << "Info Emprunt Fail : ";
+        if (ok3 == true) {
+            empruntFail.print(); 
+        } else {
+            std::cout << "ECHEC" << std::endl;
+        }
+    std::cout << std::endl;
 
-std::cout << "Info Emprunt 2 : ";
-if (ok2 == true) {
-    emprunt2.print(); 
-} else {
-    std::cout << "ECHEC" << std::endl;
-}
-std::cout << std::endl;
+
+
 //---------------------------------------------------------------------------
 /*
     std::cout << "Test Livre : ";
@@ -197,41 +211,46 @@ std::cout << std::endl;
 
 //recherche livre par auteur
 /*
-std::cout << "Recherche livre par auteur Douglas Adams : " << std::endl;
-auto livresParAuteur = bibliotheque.rechercherLivresParAuteur("Douglas");
-for (const auto& l : livresParAuteur) {
-    l.print();
-    std::cout << std::endl;
-}
+    std::cout << "Recherche livre par auteur Douglas Adams : " << std::endl;
+    auto livresParAuteur = bibliotheque.rechercherLivresParAuteur("Douglas");
+    for (const auto& l : livresParAuteur) {
+        l.print();
+        std::cout << std::endl;
+    }
 */
 
 //---------------------------------------------------------------------------
 //livres empruntés et pourcentage
 
 /*
-std::cout << "Liste des livres empruntes :" << std::endl;
-auto livresEmp = bibliotheque.getLivresEmpruntes();
-for (const auto& l : livresEmp) {
-    l.print();
-    std::cout << std::endl;
-}
-
-std::cout << "Pourcentage de livres empruntes : "
-          << bibliotheque.getPourcentageLivresEmpruntes()
-          << " %" << std::endl;
-
-
+    std::cout << "Liste des livres empruntes :" << std::endl;
+    auto livresEmp = bibliotheque.getLivresEmpruntes();
+    for (const auto& l : livresEmp) {
+        l.print();
+        std::cout << std::endl;
+    }
+    std::cout << "Pourcentage de livres empruntes : " << bibliotheque.getPourcentageLivresEmpruntes() << " %" << std::endl;
     return 0;
-}
-
 */
-
+    //---------------------------------------------------------------------------
 //livres empruntés par un lecteur
-std::cout << "Liste des livres empruntes dginhac :" << std::endl;
-std::vector<Livre> livresEmpParLecteur = bibliotheque.getLivresEmpruntesParLecteur("dginhac");
-for (const auto& l : livresEmpParLecteur) {
-    l.print();
-    std::cout << std::endl;
-}
+    std::cout << "Liste des livres empruntes dginhac :" << std::endl;
+    std::vector<Livre> livresEmpParLecteur = bibliotheque.getLivresEmpruntesParLecteur("dginhac");
+    for (const auto& livre : livresEmpParLecteur) {
+        livre.print();
+        std::cout << std::endl;
+    }
+//---------------------------------------------------------------------------
+//classment des lecteurs par nombre d'emprunts
+
+    std::cout << "Classement des lecteurs par nombre d'emprunts :" << std::endl;
+    auto classement = bibliotheque.classementLecteursParEmprunts();
+    for (const auto& user : classement) {
+        const Lecteur& lecteur = user.first;
+        int nb = user.second;
+        std::cout << "- " << lecteur.id() << " : " << nb << " emprunt" << std::endl;
+    }
+
+
     return 0;
-}
+}   

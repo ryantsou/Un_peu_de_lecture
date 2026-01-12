@@ -33,8 +33,8 @@ public:
         emprunts_.push_back(isbn);
     }
 
-void print() const;  
-    private:
+    void print() const;  
+private:
     std::string id_;
     std::string nom_;
     std::string prenom_;

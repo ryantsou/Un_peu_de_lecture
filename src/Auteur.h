@@ -40,11 +40,11 @@ public:
 
 
 
-void print() const;  
-    private:
-    std::string id_;
-    std::string nom_;
-    std::string prenom_;
-};
+    void print() const;  
+        private:
+        std::string id_;
+        std::string nom_;
+        std::string prenom_;
+    };
     
 #endif
