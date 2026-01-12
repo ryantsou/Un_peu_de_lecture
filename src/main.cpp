@@ -111,7 +111,7 @@ int main(){
 // -------------------------------LIVRES---------------------------------
     Date pub(4, 5, 2021);
     Livre livre("The Hitchhiker's Guide to the Galaxy", auteur, "Anglais", "Science Fiction", pub, "0593359445");
-    Date pub2(06, 11, 1943);
+    Date pub2(6, 11, 1943);
     Livre livre2("Le Petit Prince", auteur2, "Français", "Conte philosophique", pub2, "9780156013987");
     Date pub3(8, 6, 1949);
     Livre livre3("1984", auteur3, "Anglais", "Dystopie", pub3, "9780451524935");
@@ -162,7 +162,7 @@ int main(){
 
 
 //emprunter livre
-    Date dateDuJour(9, 1, 2025);
+    Date dateDuJour(12, 01, 2025);
     Emprunt emprunt(dateDuJour, livre.isbn(), lecteur.id());    
     bool ok = bibliotheque.emprunterLivre("dginhac", "0593359445", dateDuJour);
     
