@@ -182,33 +182,37 @@ int main(){
 
     std::cout << "Info Emprunt 1 : " << std::endl;
         if (ok == true) {
+            std::cout << "Emprunt effectue" << std::endl;
             emprunt.print(); 
         } else {
-            std::cout << "ECHEC" << std::endl;
+            std::cout << "ECHEC Emprunt" << std::endl;
             }   
     std::cout << std::endl;
 
     std::cout << "Info Emprunt 2 : " << std::endl;
         if (ok2 == true) {
+            std::cout << "Emprunt effectue" << std::endl;
             emprunt2.print(); 
         } else {
-            std::cout << "ECHEC" << std::endl;
+            std::cout << "ECHEC Emprunt" << std::endl;
         }
     std::cout << std::endl;
 
     std::cout << "Info Emprunt 3 : " << std::endl;
         if (ok3 == true) {
+            std::cout << "Emprunt effectue" << std::endl;
             emprunt3.print(); 
         } else {
-            std::cout << "ECHEC" << std::endl;
+            std::cout << "ECHEC Emprunt" << std::endl;
         }
     std::cout << std::endl;
 
     std::cout << "Info Emprunt Fail : " << std::endl;
         if (okFail == true) {
+            std::cout << "Emprunt effectue" << std::endl;
             empruntFail.print(); 
         } else {
-            std::cout << "ECHEC" << std::endl;
+            std::cout << "ECHEC Emprunt" << std::endl;
         }
     std::cout << std::endl;
 
