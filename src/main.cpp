@@ -112,21 +112,21 @@ int main(){
     Date pub(4, 5, 2021);
     Livre livre("The Hitchhiker's Guide to the Galaxy", auteur, "Anglais", "Science Fiction", pub, "0593359445");
     Date pub2(06, 11, 1943);
-    Livre livre2("Le Petit Prince", auteur2, "Français", "Conte philosophique", pub, "9780156013987");
+    Livre livre2("Le Petit Prince", auteur2, "Français", "Conte philosophique", pub2, "9780156013987");
     Date pub3(8, 6, 1949);
-    Livre livre3("1984", auteur3, "Anglais", "Dystopie", pub, "9780451524935");
+    Livre livre3("1984", auteur3, "Anglais", "Dystopie", pub3, "9780451524935");
     Date pub4(11, 7, 1960);
-    Livre livre4("To Kill a Mockingbird", auteur4, "Anglais", "Roman", pub, "9780061120084");  
+    Livre livre4("To Kill a Mockingbird", auteur4, "Anglais", "Roman", pub4, "9780061120084");  
     Date pub5(18, 10, 1851);
-    Livre livre5("Moby Dick", auteur5, "Anglais", "Aventure", pub, "9781503280786");
+    Livre livre5("Moby Dick", auteur5, "Anglais", "Aventure", pub5, "9781503280786");
     Date pub6(14, 2, 1925);
-    Livre livre6("The Great Gatsby", auteur6, "Anglais", "Roman", pub, "9780743273565");
+    Livre livre6("The Great Gatsby", auteur6, "Anglais", "Roman", pub6, "9780743273565");
     Date pub7(1, 9, 1813);
-    Livre livre7("Pride and Prejudice", auteur7, "Anglais", "Roman", pub, "9781503290563");
+    Livre livre7("Pride and Prejudice", auteur7, "Anglais", "Roman", pub7, "9781503290563");
     Date pub8(30, 1, 1818);
-    Livre livre8("Frankenstein", auteur8, "Anglais", "Gothique", pub, "9780486282114");
+    Livre livre8("Frankenstein", auteur8, "Anglais", "Gothique", pub8, "9780486282114");
     Date pub9(16, 7, 1870);
-    Livre livre9("War and Peace", auteur9, "Russe", "Historique", pub, "9780199232765");
+    Livre livre9("War and Peace", auteur9, "Russe", "Historique", pub9, "9780199232765");
     bibliotheque.ajouterLivre(livre);
     bibliotheque.ajouterLivre(livre2);
     bibliotheque.ajouterLivre(livre3);
@@ -173,6 +173,14 @@ int main(){
     Emprunt emprunt3(dateDuJour, livre.isbn(), lecteur3.id());
     bool ok3 = bibliotheque.emprunterLivre("esirem2", "9780451524935", dateDuJour);
 
+    Emprunt emprunt4(dateDuJour, livre.isbn(), lecteur.id());
+    bool ok4 = bibliotheque.emprunterLivre("dginhac", "9780743273565", dateDuJour);
+
+    Emprunt emprunt5(dateDuJour, livre.isbn(), lecteur2.id());
+    bool ok5 = bibliotheque.emprunterLivre("esirem", "9780199232765", dateDuJour);
+
+    Emprunt emprunt6(dateDuJour, livre.isbn(), lecteur2.id());
+    bool ok6 = bibliotheque.emprunterLivre("esirem", "9781503290563", dateDuJour);
 
 //reemprunter le meme livre
     Emprunt empruntFail(dateDuJour, livre.isbn(), lecteur3.id());  
@@ -202,6 +210,33 @@ int main(){
         if (ok3 == true) {
             std::cout << "Emprunt effectue" << std::endl;
             emprunt3.print(); 
+        } else {
+            std::cout << "ECHEC Emprunt" << std::endl;
+        }
+    std::cout << std::endl;
+
+    std::cout << "Info Emprunt 4 : " << std::endl;
+        if (ok4 == true) {
+            std::cout << "Emprunt effectue" << std::endl;
+            emprunt4.print(); 
+        } else {
+            std::cout << "ECHEC Emprunt" << std::endl;
+        }
+    std::cout << std::endl;
+
+    std::cout << "Info Emprunt 5 : " << std::endl;
+        if (ok5 == true) {
+            std::cout << "Emprunt effectue" << std::endl;
+            emprunt5.print(); 
+        } else {
+            std::cout << "ECHEC Emprunt" << std::endl;
+        }
+    std::cout << std::endl;
+
+    std::cout << "Info Emprunt 6 : " << std::endl;
+        if (ok6 == true) {
+            std::cout << "Emprunt effectue" << std::endl;
+            emprunt6.print(); 
         } else {
             std::cout << "ECHEC Emprunt" << std::endl;
         }
@@ -239,7 +274,7 @@ int main(){
 //---------------------------------------------------------------------------
 //livres empruntés et pourcentage
 
-
+/*
     std::cout << "Liste des livres empruntes :" << std::endl;
     auto livresEmp = bibliotheque.getLivresEmpruntes();
     for (const auto& l : livresEmp) {
@@ -248,7 +283,7 @@ int main(){
     }
     std::cout << "Pourcentage de livres empruntes : " << bibliotheque.getPourcentageLivresEmpruntes() << " %" << std::endl;
     return 0;
-
+*/
     //---------------------------------------------------------------------------
 //livres empruntés par un lecteur
 /*

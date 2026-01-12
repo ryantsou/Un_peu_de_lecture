@@ -10,64 +10,34 @@
 
 class Livre {
 public:
-    Livre() =default;
+//    Livre() =default;
 
-    Livre (const std::string& titre, Auteur& auteur, const std::string& langue, const std::string& genre, const Date& datePublication, const std::string& isbn)
-        :titre_(titre), auteur_(auteur), langue_(langue), genre_(genre), datePublication_(datePublication), isbn_(isbn) {}    
+    Livre (const std::string& titre, Auteur& auteur, const std::string& langue, const std::string& genre, const Date& datePublication, const std::string& isbn);
+    const std::string& titre() const;
+    const Auteur& auteur() const;
+    const std::string& langue() const;
+    const std::string& genre() const;
+    const Date& datePublication() const;
+    const std::string& isbn() const;   
 
-    const std::string& titre() const {
-        return titre_;
-    }
-    const Auteur& auteur() const {
-        return auteur_;
-    }
-    const std::string& langue() const {
-        return langue_;
-    }
-    const std::string& genre() const {
-        return genre_;
-    }
-    const Date& datePublication() const {
-        return datePublication_;
-    }
-    const std::string& isbn() const {
-        return isbn_;
-    }   
-
-    const std::vector<std::string>& emprunteurs() const {
-        return emprunteurs_;
-    }
+    const std::vector<std::string>& emprunteurs() const;
 
 
-    void set_titre(const std::string& titre) {
-        titre_ = titre;
-    }
-    void set_auteur(const Auteur& auteur) {
-        auteur_ = auteur;
-    }
+    void set_titre(const std::string& titre);
+    void set_auteur(const Auteur& auteur);
 
-    void set_langue(const std::string& langue) {
-        langue_ = langue;
-    }
-    void set_genre(const std::string& genre) {
-        genre_ = genre;
-    }   
-    void set_datePublication(const Date& datePublication) {
-        datePublication_ = datePublication;
-    }
-    void set_isbn(const std::string& isbn) {
-        isbn_ = isbn;
-    }   
+    void set_langue(const std::string& langue);
+    void set_genre(const std::string& genre);
+    void set_datePublication(const Date& datePublication);
+    void set_isbn(const std::string& isbn);
 
-    void ajouterEmprunteur(std::string idEmprunteur) {
-        emprunteurs_.push_back(idEmprunteur);
-    }
+    void ajouterEmprunteur(std::string idEmprunteur);
 
     void print() const;
 
 
-    bool estEmprunte() const { return estEmprunte_; }
-    void setEmprunte(bool e) { estEmprunte_ = e; }
+    bool estEmprunte() const;
+    void setEmprunte(bool e);
 
 
 private:

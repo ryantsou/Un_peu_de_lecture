@@ -11,21 +11,18 @@
 class Bibliotheque {
 public:
 
-    const std::vector<Livre>&   livres()   const {
-        return livres_; 
-    }
-    const std::vector<Lecteur>& lecteurs() const { 
-        return lecteurs_; 
-    }
-    const std::vector<Emprunt>& emprunts() const { 
-        return emprunts_; 
-    }
-    const std::vector<Auteur>& auteurs() const { 
-        return auteurs_; 
-    }
+    const std::vector<Livre>& livres() const;
+    
+    const std::vector<Lecteur>& lecteurs() const;
+    
+    const std::vector<Emprunt>& emprunts() const;
+
+    const std::vector<Auteur>& auteurs() const;
 
     void ajouterLivre(const Livre& livre);
+    
     void ajouterLecteur(const Lecteur& livre);
+    
     void ajouterAuteur(const Auteur& livre);
 
     bool emprunterLivre(const std::string& idLecteur, const std::string& isbn, const Date& dateEmprunt);
