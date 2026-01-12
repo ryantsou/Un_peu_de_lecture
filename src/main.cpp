@@ -251,15 +251,17 @@ int main(){
         }
     std::cout << std::endl;
 
-
+// restituer livre
+    bool okR = bibliotheque.restituerLivre("esirem", "9781503290563");
+    std::cout << "Info restitution : " << std::endl;
+        if (okR == true) {
+            std::cout << "Restitution effectuee" << std::endl;
+        } else {
+            std::cout << "ECHEC Restitution" << std::endl;
+        }
+    std::cout << std::endl;
 
 //---------------------------------------------------------------------------
-/*
-    std::cout << "Test Livre : ";
-    livre.print();
-    std::cout << std::endl;
-*/
-
 
 //recherche livre par auteur
 /*
@@ -297,7 +299,7 @@ int main(){
     //---------------------------------------------------------------------------
 //classment des lecteurs par nombre d'emprunts
 
-    std::cout << "Classement des lecteurs par nombre d'emprunts :" << std::endl;
+    std::cout << "Classement des lecteurs par nombre d'emprunts en cours:" << std::endl;
     auto classement = bibliotheque.classementLecteursParEmprunts();
     for (const auto& user : classement) {
         const Lecteur& lecteur = user.first;

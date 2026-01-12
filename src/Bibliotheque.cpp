@@ -50,7 +50,7 @@
         emprunts_.emplace_back(dateEmprunt, isbn, idLecteur);
         return true;
     }
-
+// restituer livre 
     bool Bibliotheque::restituerLivre(const std::string& idLecteur, const std::string& isbn){
         Lecteur* lecteur = nullptr;
         for (auto& livre : lecteurs_) {
@@ -70,6 +70,7 @@
         }
         if (!livre || !livre->estEmprunte()) return false;
         livre->setEmprunte(false);
+        lecteur->supprimerEmprunt(isbn);
         return true;
     }
 
@@ -137,15 +138,7 @@
         std::vector<std::pair<Lecteur,int>> stats;
 
         for (const auto& lec : lecteurs_) {
-            stats.push_back({lec, 0});
-        }
-        for (const auto& e : emprunts_) {
-            for (auto& p : stats) {
-                if (p.first.id() == e.idLecteur()) {
-                    p.second++;
-                    break;
-                }
-            }
+            stats.push_back({lec, lec.nbEmprunts()});
         }
         std::sort(stats.begin(), stats.end(),
                 [](const auto& a, const auto& b) {

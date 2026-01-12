@@ -1,5 +1,6 @@
 #include "Lecteur.h"
 #include <iostream>
+#include <algorithm>
 
 Lecteur::Lecteur(const std::string& id, const std::string& nom, const std::string& prenom)
         : id_(id), nom_(nom), prenom_(prenom) {}
@@ -26,6 +27,21 @@ Lecteur::Lecteur(const std::string& id, const std::string& nom, const std::strin
         emprunts_.push_back(isbn);
     }   
 
+
+    void Lecteur::supprimerEmprunt(const std::string& isbn) {
+        for (auto it = emprunts_.begin(); it != emprunts_.end(); ) {
+            if (*it == isbn) { 
+                it = emprunts_.erase(it);
+            } else {
+                ++it;
+            }
+        }
+    }
+
+    int Lecteur::nbEmprunts() const {
+        return emprunts_.size();
+    }
+ 
 void Lecteur::print() const {
 
     std::cout << "Lecteur : " << prenom_ << " " << nom_ 
