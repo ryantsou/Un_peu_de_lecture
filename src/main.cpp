@@ -170,29 +170,42 @@ int main(){
     Emprunt emprunt2(dateDuJour, livre.isbn(), lecteur2.id());  
     bool ok2 = bibliotheque.emprunterLivre("esirem", "9780156013987", dateDuJour);
 
+    Emprunt emprunt3(dateDuJour, livre.isbn(), lecteur3.id());
+    bool ok3 = bibliotheque.emprunterLivre("esirem2", "9780451524935", dateDuJour);
+
 
 //reemprunter le meme livre
     Emprunt empruntFail(dateDuJour, livre.isbn(), lecteur3.id());  
-    bool ok3 = bibliotheque.emprunterLivre("esirem2", "0593359445", dateDuJour);
+    bool okFail = bibliotheque.emprunterLivre("esirem2", "0593359445", dateDuJour);
 
 
 
-    std::cout << "Info Emprunt 1 : ";
+    std::cout << "Info Emprunt 1 : " << std::endl;
         if (ok == true) {
             emprunt.print(); 
         } else {
-            std::cout << "emprunt succes" << std::endl;
+            std::cout << "ECHEC" << std::endl;
             }   
     std::cout << std::endl;
-    std::cout << "Info Emprunt 2 : ";
+
+    std::cout << "Info Emprunt 2 : " << std::endl;
         if (ok2 == true) {
             emprunt2.print(); 
         } else {
             std::cout << "ECHEC" << std::endl;
         }
     std::cout << std::endl;
-    std::cout << "Info Emprunt Fail : ";
+
+    std::cout << "Info Emprunt 3 : " << std::endl;
         if (ok3 == true) {
+            emprunt3.print(); 
+        } else {
+            std::cout << "ECHEC" << std::endl;
+        }
+    std::cout << std::endl;
+
+    std::cout << "Info Emprunt Fail : " << std::endl;
+        if (okFail == true) {
             empruntFail.print(); 
         } else {
             std::cout << "ECHEC" << std::endl;
@@ -222,7 +235,7 @@ int main(){
 //---------------------------------------------------------------------------
 //livres empruntés et pourcentage
 
-/*
+
     std::cout << "Liste des livres empruntes :" << std::endl;
     auto livresEmp = bibliotheque.getLivresEmpruntes();
     for (const auto& l : livresEmp) {
@@ -231,16 +244,18 @@ int main(){
     }
     std::cout << "Pourcentage de livres empruntes : " << bibliotheque.getPourcentageLivresEmpruntes() << " %" << std::endl;
     return 0;
-*/
+
     //---------------------------------------------------------------------------
 //livres empruntés par un lecteur
+/*
     std::cout << "Liste des livres empruntes dginhac :" << std::endl;
     std::vector<Livre> livresEmpParLecteur = bibliotheque.getLivresEmpruntesParLecteur("dginhac");
     for (const auto& livre : livresEmpParLecteur) {
         livre.print();
         std::cout << std::endl;
     }
-//---------------------------------------------------------------------------
+*/
+    //---------------------------------------------------------------------------
 //classment des lecteurs par nombre d'emprunts
 
     std::cout << "Classement des lecteurs par nombre d'emprunts :" << std::endl;

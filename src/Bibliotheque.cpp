@@ -13,8 +13,7 @@ void Bibliotheque::ajouterAuteur(const Auteur& livre) {
     auteurs_.push_back(livre);
 }
 
-bool Bibliotheque::emprunterLivre(const std::string& idLecteur, const std::string& isbn, const Date& dateEmprunt)
-{
+bool Bibliotheque::emprunterLivre(const std::string& idLecteur, const std::string& isbn, const Date& dateEmprunt){
     Lecteur* lecteur = nullptr;
     for (auto& livre : lecteurs_) {
         if (livre.id() == idLecteur) {
